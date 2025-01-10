@@ -1,0 +1,149 @@
+/* Login.css */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  padding: 20px;
+}
+
+.login-box {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.login-box h2 {
+  margin: 0 0 20px;
+  text-align: center;
+  color: #333;
+  font-size: 24px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.1);
+}
+
+.form-group input.error {
+  border-color: #dc3545;
+}
+
+.error-message {
+  color: #dc3545;
+  background-color: #f8d7da;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 15px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.login-button,
+.register-button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-button {
+  background-color: #007bff;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.login-button:hover {
+  background-color: #0056b3;
+}
+
+.register-button {
+  background-color: #6c757d;
+  color: white;
+}
+
+.register-button:hover {
+  background-color: #5a6268;
+}
+
+@media (max-width: 768px) {
+  .login-container {
+    padding: 15px;
+    align-items: flex-start;
+    padding-top: 80px;
+  }
+
+  .login-box {
+    padding: 25px;
+    border-radius: 8px;
+  }
+
+  .login-box h2 {
+    font-size: 22px;
+    margin-bottom: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-container {
+    padding: 10px;
+    padding-top: 70px;
+  }
+
+  .login-box {
+    padding: 20px 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .login-box h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+
+  .form-group {
+    margin-bottom: 12px;
+  }
+
+  .form-group input {
+    padding: 10px;
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+
+  .error-message {
+    font-size: 13px;
+    padding: 8px;
+    margin-bottom: 12px;
+  }
+
+  .login-button,
+  .register-button {
+    padding: 12px;
+    font-size: 15px;
+  }
+
+  .login-button {
+    margin-bottom: 8px;
+  }
+}
