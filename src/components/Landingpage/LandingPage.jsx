@@ -238,7 +238,7 @@ const LandingPage = () => {
 
       {/* Products-section */}
       <section className="products-section">
-        <h2>Best sellers</h2>
+        <h2>Combo Offers</h2>
         <div className="products-grid">
           {products.map(product => (
             <ProductCard
@@ -298,7 +298,7 @@ const LandingPage = () => {
           <SwiperSlide>
             <div className="brand-item">
               <Link to="BrandProduct/HARIBOL/3203">
-                <img src="https://gnbdevcdn.s3.ap-southeast-1.amazonaws.com/+Marketing/ShopByBrandImages/Haribol.jpg" alt="HARIBOL" loading="lazy" />
+                <img src={Nuts}  alt="HARIBOL" loading="lazy" />
               </Link>
             </div>
           </SwiperSlide>

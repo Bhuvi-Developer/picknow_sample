@@ -14,7 +14,7 @@ const carouselData = [
       alt: "Organic Products Showcase",
       aspectRatio: "1.7777777777777777"
     },
-     title: "Premium Dry Fruits",
+    title: "Premium Dry Fruits",
     description: "Experience the finest quality natural and organic products",
   },
   {
@@ -24,7 +24,7 @@ const carouselData = [
       alt: "Fresh Organic Collection",
       aspectRatio: "1.7777777777777777"
     },
-     title: "Fresh & Natural",
+    title: "Fresh & Natural",
     description: "Discover our wide range of fresh and natural products",
   },
   {
@@ -87,7 +87,7 @@ const Carousel = () => {
       {carouselData.map((slide, index) => (
         <div
           key={slide.id}
-          className={`hero__image-wrapper ${
+          className={`carousel-slide ${
             index === currentSlide ? 'active' : ''
           } ${index === exitingSlide ? 'exit' : ''}`}
           style={{
@@ -100,35 +100,17 @@ const Carousel = () => {
             visibility: index === currentSlide || index === exitingSlide ? 'visible' : 'hidden'
           }}
         >
-          <img
-            className="hero__image"
-            src={slide.image.src}
-            alt={slide.image.alt}
-            style={{
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
-              objectPosition: 'center'
-            }}
-          />
+          <div className="carousel-image-wrapper">
+            <img
+              src={slide.image.src}
+              alt={slide.image.alt}
+              className="carousel-image"
+            />
+          </div>
           <div className="carousel-overlay"></div>
           <div className="carousel-content">
-            {slide.title && (
-              <div className="hero__title">
-                <div className="animation-cropper">
-                  <div className="animation-contents">
-                    <h2 className="carousel-title">{slide.title}</h2>
-                  </div>
-                </div>
-              </div>
-            )}
-            <div className="hero__subtitle">
-              <div className="animation-cropper">
-                <div className="animation-contents">
-                  <p className="carousel-description">{slide.description}</p>
-                </div>
-              </div>
-            </div>
+            <h2 className="carousel-title">{slide.title}</h2>
+            <p className="carousel-description">{slide.description}</p>
           </div>
         </div>
       ))}

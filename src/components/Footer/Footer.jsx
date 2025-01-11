@@ -76,7 +76,7 @@ const Footer = () => {
         </div>
 
         <div className="footer-bottom">
-          <p> {currentYear} Picknow</p>
+          <p> {currentYear} @Picknow</p>
         </div>
       </div>
     </footer>
