@@ -30,14 +30,14 @@ const Navbar = ({ isLoggedIn, onLogout }) => {
 
   return (
     <header className="header">
-      <nav className="navbar">
+    <nav className="navbar">
         <div className="nav-left">
           <div className="nav-brand">
             <Link to="/">PickNow</Link>
           </div>
           
           <div className={`nav-links ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
-            <Link to="/products" onClick={() => setIsMobileMenuOpen(false)}>Products</Link>
+            <Link to="/product" onClick={() => setIsMobileMenuOpen(false)}>Products</Link>
             <Link to="/categories" onClick={() => setIsMobileMenuOpen(false)}>Categories</Link>
             <Link to="/deals" onClick={() => setIsMobileMenuOpen(false)}>Deals</Link>
           </div>
@@ -102,10 +102,10 @@ const Navbar = ({ isLoggedIn, onLogout }) => {
               <span></span>
             </div>
           </button>
-        </div>
-      </nav>
+      </div>
+    </nav>
     </header>
   );
 };
 
-export default Navbar;
+export default Navbar; 

@@ -1068,3 +1068,58 @@ h1, h2, h3, h4, h5, h6 {
 *, *::before, *::after {
   box-sizing: border-box;
 }
+
+.shop-by-category {
+  padding: 42px;
+  margin-bottom: 40px;
+}
+
+.shop-by-category .heading-bg {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.shop-by-category .heading-bg h2 {
+  font-size: 24px;
+  color: #333;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+  justify-items: center;
+}
+
+.category-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  padding: 8px;
+}
+
+.category-item:hover {
+  transform: translateY(-5px);
+}
+
+.category-item img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  box-shadow: 0px 5px 4px rgba(24, 40, 63, 0.46);
+  margin-bottom: 10px;
+}
+
+.category-item span {
+  font-size: 15px;
+  color: #141414;
+  font-family: 'CeraPRO-Medium', sans-serif;
+  margin-top: 8px;
+  text-align: center;
+  word-wrap: break-word;
+}

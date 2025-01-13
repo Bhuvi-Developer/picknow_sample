@@ -102,138 +102,63 @@ const LandingPage = () => {
         <p className="welcome-subtitle">Discover Nature's Finest Selection</p>
       </section>
 
-      {/* Category-section */}
-      <section className="category-section">
+      {/* New Shop by Category Section */}
+      <section className="shop-by-category">
         <div className="heading-bg">
           <h2>SHOP BY CATEGORY</h2>
         </div>
-        <Swiper
-          modules={[Navigation, Pagination]}
-          spaceBetween={18}
-          slidesPerView={1}
-          navigation
-          pagination={{ clickable: true }}
-          className="category-swiper"
-          breakpoints={{
-            320: {
-              slidesPerView: 2,
-              spaceBetween: 10
-            },
-            480: {
-              slidesPerView: 3,
-              spaceBetween: 15
-            },
-            768: {
-              slidesPerView: 4,
-              spaceBetween: 15
-            },
-            1024: {
-              slidesPerView: 5,
-              spaceBetween: 20
-            },
-            1280: {
-              slidesPerView: 6,
-              spaceBetween: 20
-            }
-          }}
-        >
-          <SwiperSlide>
-            <div className="category-item">
-              <img src={dryFruit1} alt="Exotic Fruits" />
-              <span>Exotic Fruits</span>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="category-item">
-              <img src={Nuts} alt="Meat, Poultry & Seafood" />
-              <span>Meat, Poultry & Seafood</span>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="category-item">
-              <img src="https://gnbdevcdn.s3.ap-southeast-1.amazonaws.com/Images/Category/Big/Bakery+%26+Dairy.png" alt="Dairy" />
-              <span>Dairy</span>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="category-item">
-              <img src="https://gnbdevcdn.s3.ap-southeast-1.amazonaws.com/Images/Category/Big/Fresh+Artisanal+Breads.png" alt="Artisanal Breads" />
-              <span>Artisanal Breads</span>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="category-item">
-              <img src="https://gnbdevcdn.s3.ap-southeast-1.amazonaws.com/Images/Category/Big/Chocolates%2C+Confectionery.png" alt="Chocolates, Confectionery" />
-              <span>Chocolates, Confectionery</span>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="category-item">
-              <img src="https://gnbdevcdn.s3.ap-southeast-1.amazonaws.com/Images/Category/Big/Delicatessen+%26+Cheese.png" alt="Delicatessen & Cheese" />
-              <span>Delicatessen & Cheese</span>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="category-item">
-              <img src="https://gnbdevcdn.s3.ap-southeast-1.amazonaws.com/Images/Category/Big/The-Gift.png" alt="The Gift Studio" />
-              <span>The Gift Studio</span>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="category-item">
-              <img src="https://gnbdevcdn.s3.ap-southeast-1.amazonaws.com/Images/Category/Big/Breakfast%2C+Jams%2C+Honey+%26+Spreads.png" alt="Breakfast & Spreads" />
-              <span>Breakfast & Spreads</span>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="category-item">
-              <img src="https://gnbdevcdn.s3.ap-southeast-1.amazonaws.com/Images/Category/Big/Breakfast%2C+Jams%2C+Honey+%26+Spreads.png" alt="Breakfast & Spreads" />
-              <span>Breakfast & Spreads</span>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="category-item">
-              <img src="https://gnbdevcdn.s3.ap-southeast-1.amazonaws.com/Images/Category/Big/Breakfast%2C+Jams%2C+Honey+%26+Spreads.png" alt="Breakfast & Spreads" />
-              <span>Breakfast & Spreads</span>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="category-item">
-              <img src="https://gnbdevcdn.s3.ap-southeast-1.amazonaws.com/Images/Category/Big/Breakfast%2C+Jams%2C+Honey+%26+Spreads.png" alt="Breakfast & Spreads" />
-              <span>Breakfast & Spreads</span>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="category-item">
-              <img src="https://gnbdevcdn.s3.ap-southeast-1.amazonaws.com/Images/Category/Big/Breakfast%2C+Jams%2C+Honey+%26+Spreads.png" alt="Breakfast & Spreads" />
-              <span>Breakfast & Spreads</span>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="category-item">
-              <img src="https://gnbdevcdn.s3.ap-southeast-1.amazonaws.com/Images/Category/Big/Breakfast%2C+Jams%2C+Honey+%26+Spreads.png" alt="Breakfast & Spreads" />
-              <span>Breakfast & Spreads</span>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="category-item">
-              <img src="https://gnbdevcdn.s3.ap-southeast-1.amazonaws.com/Images/Category/Big/Breakfast%2C+Jams%2C+Honey+%26+Spreads.png" alt="Breakfast & Spreads" />
-              <span>Breakfast & Spreads</span>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="category-item">
-              <img src="https://gnbdevcdn.s3.ap-southeast-1.amazonaws.com/Images/Category/Big/Breakfast%2C+Jams%2C+Honey+%26+Spreads.png" alt="Breakfast & Spreads" />
-              <span>Breakfast & Spreads</span>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="category-item">
-              <img src="https://gnbdevcdn.s3.ap-southeast-1.amazonaws.com/Images/Category/Big/Breakfast%2C+Jams%2C+Honey+%26+Spreads.png" alt="Breakfast & Spreads" />
-              <span>Breakfast & Spreads</span>
-            </div>
-          </SwiperSlide>
-        </Swiper>
+        <div className="category-grid">
+          <div className="category-item">
+            <img src={dryFruit1} alt="Nuts" />
+            <span>Nuts</span>
+          </div>
+          <div className="category-item">
+            <img src={Nuts} alt="Nuts" />
+            <span>Nuts</span>
+          </div>
+          <div className="category-item">
+            <img src={honey} alt="Honey" />
+            <span>Honey</span>
+          </div>
+          <div className="category-item">
+            <img src={Nuts} alt="Nuts" />
+            <span>Nuts</span>
+          </div>
+          <div className="category-item">
+            <img src={dryFruit1} alt="Nuts" />
+            <span>Nuts</span>
+          </div>
+          <div className="category-item">
+            <img src={honey} alt="Nuts" />
+            <span>Nuts</span>
+          </div>
+          <div className="category-item">
+            <img src={honey} alt="Nuts" />
+            <span>Nuts</span>
+          </div>
+          <div className="category-item">
+            <img src={honey} alt="Nuts" />
+            <span>Nuts</span>
+          </div>
+          <div className="category-item">
+            <img src={honey} alt="Nuts" />
+            <span>Nuts</span>
+          </div>
+          <div className="category-item">
+            <img src={honey} alt="Nuts" />
+            <span>Nuts</span>
+          </div>
+          <div className="category-item">
+            <img src={honey} alt="Nuts" />
+            <span>Nuts</span>
+          </div>
+          <div className="category-item">
+            <img src={honey} alt="Nuts" />
+            <span>Nuts</span>
+          </div>
+          
+          
+        </div>
       </section>
 
       {/* Products-section */}
@@ -251,6 +176,8 @@ const LandingPage = () => {
           ))}
         </div>
       </section>
+    /
+    
 
       {/* Brand-section */}
       <section className="shop-by-world-brands">
@@ -372,4 +299,4 @@ const LandingPage = () => {
   );
 };
 
-export default LandingPage;
+export default LandingPage; 

@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from 'react'
-import { Routes, Route, useNavigate } from 'react-router-dom'
-import Navbar from './components/Navbar/Navbar'
-import LandingPage from './components/Landingpage/LandingPage'
-import Login from './components/Login/login'
+import React, { useState, useEffect } from 'react';
+import { Routes, Route, useNavigate } from 'react-router-dom';
+import Navbar from './components/Navbar/Navbar';
+import LandingPage from './components/Landingpage/LandingPage';
+import Login from './components/Login/Login';
+import ProductPage from './components/ProductPage/ProductPage';
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Check if user is logged in on app load
     const user = localStorage.getItem('currentUser');
     if (user) {
       setIsLoggedIn(true);
@@ -19,7 +19,6 @@ const App = () => {
   const handleLogin = (status) => {
     setIsLoggedIn(status);
     if (!status) {
-      // Clear user data on logout
       localStorage.removeItem('currentUser');
       navigate('/');
     }
@@ -32,7 +31,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<Login onLogin={handleLogin} />} />
-          <Route path="/products" element={<div>Products Page</div>} />
+          <Route path="/products" element={<ProductPage product={mockProduct} />} />
           <Route path="/categories" element={<div>Categories Page</div>} />
           <Route path="/deals" element={<div>Deals Page</div>} />
           <Route path="/cart" element={<div>Cart Page</div>} />
@@ -40,7 +39,14 @@ const App = () => {
         </Routes>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default App
+const mockProduct = {
+  image: 'https://via.placeholder.com/150',
+  title: 'Sample Product',
+  price: 49.99,
+  previousPrice: 59.99,
+};
+
+export default App;
