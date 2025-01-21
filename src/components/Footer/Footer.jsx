@@ -59,7 +59,7 @@ const Footer = () => {
           <div className="footer-column">
             <h3>For users</h3>
             <ul className="footer-links">
-              <li><Link to="/login">Login</Link></li>
+              <li><Link to="/Login">Login</Link></li>
               <li><Link to="/register">Register</Link></li>
               <li><Link to="/settings">Settings</Link></li>
               <li><Link to="/orders">My Orders</Link></li>

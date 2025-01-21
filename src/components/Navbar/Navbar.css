@@ -158,7 +158,7 @@ body {
   color: #007bff;
 }
 
-.login-btn, .logout-btn {
+.Login-btn, .logout-btn {
   padding: 0.5rem 1rem;
   border-radius: 4px;
   font-size: 0.9rem;
@@ -166,13 +166,13 @@ body {
   transition: all 0.3s ease;
 }
 
-.login-btn {
+.Login-btn {
   background: #007bff;
   color: white;
   text-decoration: none;
 }
 
-.login-btn:hover {
+.Login-btn:hover {
   background: #0056b3;
 }
 
@@ -329,7 +329,7 @@ body {
     gap: 0.75rem;
   }
 
-  .login-btn, .logout-btn {
+  .Login-btn, .logout-btn {
     padding: 0.4rem 0.8rem;
     font-size: 0.85rem;
   }

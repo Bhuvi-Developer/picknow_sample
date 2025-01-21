@@ -15,7 +15,7 @@ import 'swiper/css/pagination';
 import { Link } from 'react-router-dom';
 import Footer from '../Footer/Footer';
 
-const ProductCard = ({ image, title, price, rating }) => {
+const ProductPage = ({ image, title, price, rating }) => {
   return (
     <div className="noo-product-inner">
       <div className="noo-product-thumbnail">
@@ -78,13 +78,13 @@ const LandingPage = () => {
       price: "15.99",
       rating: 5
     },
-    // {
-    //   id: 4,
-    //   image: "https://via.placeholder.com/300x300",
-    //   title: "Fresh Medjool Dates",
-    //   price: "12.99",
-    //   rating: 4
-    // }
+    {
+      id: 4,
+      image: Nuts,
+      title: "Fresh Medjool Dates",
+      price: "12.99",
+      rating: 4
+    }
   ];
 
   return (
@@ -166,7 +166,7 @@ const LandingPage = () => {
         <h2>Combo Offers</h2>
         <div className="products-grid">
           {products.map(product => (
-            <ProductCard
+            <ProductPage
               key={product.id}
               image={product.image}
               title={product.title}

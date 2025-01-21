@@ -89,7 +89,7 @@ const Navbar = ({ isLoggedIn, onLogout }) => {
                 </button>
               </>
             ) : (
-              <Link to="/login" className="login-btn">
+              <Link to="/Login" className="Login-btn">
                 Login
               </Link>
             )}

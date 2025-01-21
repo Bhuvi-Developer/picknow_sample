@@ -1,102 +1,198 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './login.css';
+import LandingPage from '../Landingpage/LandingPage';
+import './Login.css';
 
-const Login = ({ onLogin }) => {
+const Login = () => {
+  const [isLogin, setIsLogin] = useState(true);
+  const [formData, setFormData] = useState({
+    fullName: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+    phoneNumber: ''
+  });
+  const [passwordVisible, setPasswordVisible] = useState(false);
+  const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
+  const [popupMessage, setPopupMessage] = useState('');
   const navigate = useNavigate();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value
+    }));
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
-    // Validate inputs
-    if (!email || !password) {
-      setError('Please fill in all fields');
-      return;
-    }
 
-    // Get users from localStorage
-    const users = JSON.parse(localStorage.getItem('users')) || [];
-    const user = users.find(u => u.email === email && u.password === password);
+    if (!isLogin) {
+      // Registration Process
+      if (formData.password !== formData.confirmPassword) {
+        alert("Passwords do not match!");
+        return;
+      }
 
-    if (user) {
-      // Store login status
-      localStorage.setItem('currentUser', JSON.stringify(user));
-      onLogin(true);
-      navigate('/');
+      const users = JSON.parse(localStorage.getItem('users')) || [];
+      if (users.some((user) => user.email === formData.email)) {
+        alert('Email already registered!');
+        return;
+      }
+
+      const newUser = {
+        fullName: formData.fullName,
+        email: formData.email,
+        password: formData.password,
+        phoneNumber: formData.phoneNumber
+      };
+
+      users.push(newUser);
+      localStorage.setItem('users', JSON.stringify(users));
+
+      setPopupMessage('Registered successfully!');
+      setTimeout(() => {
+        setPopupMessage('');
+        setIsLogin(true); // Redirect to login form
+      }, 2000);
     } else {
-      setError('Invalid email or password');
-    }
-  };
+      // Login Process
+      const users = JSON.parse(localStorage.getItem('users')) || [];
+      const user = users.find(
+        (user) => user.email === formData.email && user.password === formData.password
+      );
 
-  const handleRegister = () => {
-    // Validate inputs
-    if (!email || !password) {
-      setError('Please fill in all fields');
-      return;
+      if (!user) {
+        alert('Invalid email or password!');
+        return;
+      }
+      localStorage.setItem('currentUser', JSON.stringify(user));
+      setPopupMessage('Logged in successfully!');
+      setTimeout(() => {
+        setPopupMessage('');
+        navigate('/');
+      }, 2000); 
     }
-
-    const users = JSON.parse(localStorage.getItem('users')) || [];
-    
-    // Check if user exists
-    if (users.some(user => user.email === email)) {
-      setError('Email already registered');
-      return;
-    }
-
-    // Create new user
-    const newUser = { email, password };
-    users.push(newUser);
-    localStorage.setItem('users', JSON.stringify(users));
-    
-    // Auto login
-    localStorage.setItem('currentUser', JSON.stringify(newUser));
-    onLogin(true);
-    navigate('/');
   };
 
   return (
-    <div className="login-container">
-      <div className="login-box">
-        <h2>Welcome Back</h2>
-        {error && <div className="error-message">{error}</div>}
-        
+    <div className="profile-container">
+      {/* Background Animation */}
+      <div className="background-animation">
+        <div className="floating-circle circle-1" />
+        <div className="floating-circle circle-2" />
+        <div className="floating-circle circle-3" />
+      </div>
+
+      <div className="form-container">
+        <div className="form-header">
+          <h2>{isLogin ? 'Login' : 'Register'}</h2>
+          <p>{isLogin ? 'Welcome back!' : 'Create your account'}</p>
+        </div>
+
         <form onSubmit={handleSubmit}>
+          {!isLogin && (
+            <>
+              <div className="form-group">
+                <label>Full Name</label>
+                <input
+                  type="text"
+                  name="fullName"
+                  value={formData.fullName}
+                  onChange={handleInputChange}
+                  placeholder="Enter your full name"
+                  required
+                />
+              </div>
+
+              <div className="form-group">
+                <label>Phone Number</label>
+                <input
+                  type="tel"
+                  name="phoneNumber"
+                  value={formData.phoneNumber}
+                  onChange={handleInputChange}
+                  placeholder="Enter your phone number"
+                  required
+                />
+              </div>
+            </>
+          )}
+
           <div className="form-group">
+            <label>Email</label>
             <input
               type="email"
-              placeholder="Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className={error && !email ? 'error' : ''}
-            />
-          </div>
-          
-          <div className="form-group">
-            <input
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className={error && !password ? 'error' : ''}
+              name="email"
+              value={formData.email}
+              onChange={handleInputChange}
+              placeholder="Enter your email"
+              required
             />
           </div>
 
-          <button type="submit" className="login-button">
-            Login
-          </button>
-          
-          <button 
-            type="button" 
-            className="register-button"
-            onClick={handleRegister}
-          >
-            Register
+          <div className="form-group password-group">
+            <label>Password</label>
+            <div className="password-wrapper">
+              <input
+                type={passwordVisible ? 'text' : 'password'}
+                name="password"
+                value={formData.password}
+                onChange={handleInputChange}
+                placeholder="Enter your password"
+                required
+              />
+              <span
+                className="toggle-password"
+                onClick={() => setPasswordVisible(!passwordVisible)}
+              >
+                {passwordVisible ? '👁️' : '🙈'}
+              </span>
+            </div>
+        
+          </div>
+
+          {!isLogin && (
+            <div className="form-group password-group">
+              <label>Confirm Password</label>
+              <div className="password-wrapper">
+                <input
+                  type={confirmPasswordVisible ? 'text' : 'password'}
+                  name="confirmPassword"
+                  value={formData.confirmPassword}
+                  onChange={handleInputChange}
+                  placeholder="Confirm your password"
+                  required
+                />
+                <span
+                  className="toggle-password"
+                  onClick={() => setConfirmPasswordVisible(!confirmPasswordVisible)}
+                >
+                  {confirmPasswordVisible ? '👁️' : '🙈'}
+                </span>
+              </div>
+            </div>
+          )}
+
+          <button type="submit" className="submit-button">
+            {isLogin ? 'Login' : 'Register'}
           </button>
         </form>
+
+        <div className="toggle-form">
+          <button onClick={() => setIsLogin(!isLogin)}>
+            {isLogin ? "Don't have an account? Register" : 'Already have an account? Login'}
+          </button>
+        </div>
       </div>
+
+      {/* Popup for Success Message */}
+      {popupMessage && (
+        <div className="popup-message">
+          {popupMessage}
+        </div>
+      )}
     </div>
   );
 };

@@ -6,6 +6,7 @@ import Login from './components/Login/Login';
 import ProductPage from './components/ProductPage/ProductPage';
 import CartPage from './components/CartPage/CartPage';
 
+
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
@@ -32,11 +33,13 @@ const App = () => {
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<Login onLogin={handleLogin} />} />
-          <Route path="/product" element={<ProductPage product={mockProduct} />} />
+          {/* <Route path="/product" element={<ProductPage product={mockProduct} />} /> */}
           <Route path="/categories" element={<div>Categories Page</div>} />
           <Route path="/deals" element={<div>Deals Page</div>} />
-          <Route path="/cart" element={<CartPage />} />
+          {/* <Route path="/cart" element={<CartPage />} /> */}
           <Route path="/account" element={<div>Account Page</div>} />
+          <Route path="/product" element={<ProductPage />} />
+          <Route path="/cart" element={<CartPage />} />
         </Routes>
       </div>
     </div>
