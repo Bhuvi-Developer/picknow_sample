@@ -15,6 +15,38 @@ import 'swiper/css/pagination';
 import { Link } from 'react-router-dom';
 import Footer from '../Footer/Footer';
 
+const BestSellingProduct = ({ image, category, name, weight, rating, originalPrice, discountedPrice }) => {
+  return (
+    <div className="best-selling-product">
+      <div className="product-image-container">
+        <img src={image} alt={name} className="product-image" />
+        <button className="wishlist-btn">
+          <FaHeart />
+        </button>
+        <button className="cart-btn">
+          <FaShoppingCart />
+        </button>
+      </div>
+      <div className="product-details">
+        <span className="category">{category}</span>
+        <h3 className="product-name">{name}</h3>
+        <span className="weight">{weight}</span>
+        <div className="rating">
+          <span className="stars">
+            <FaStar />
+          </span>
+          <span className="rating-value">({rating})</span>
+        </div>
+        <div className="price">
+          <span className="discounted-price">₹{discountedPrice}</span>
+          <span className="original-price">₹{originalPrice}</span>
+        </div>
+        <button className="buy-now">Buy Now</button>
+      </div>
+    </div>
+  );
+};
+
 const ProductPage = ({ image, title, price, rating }) => {
   return (
     <div className="noo-product-inner">
@@ -56,6 +88,49 @@ const ProductPage = ({ image, title, price, rating }) => {
 };
 
 const LandingPage = () => {
+  const bestSellingProducts = [
+    {
+      id: 1,
+      image: dryFruit1,
+      category: "Dry fruits",
+      name: "Badam/பாதாம்",
+      weight: "100g",
+      rating: "4.5",
+      discountedPrice: "99",
+      originalPrice: "120"
+    },
+    {
+      id: 2,
+      image: dryFruit1,
+      category: "Dry fruits",
+      name: "Badam/பாதாம்",
+      weight: "100g",
+      rating: "4.5",
+      discountedPrice: "99",
+      originalPrice: "120"
+    },
+    {
+      id: 3,
+      image: dryFruit1,
+      category: "Dry fruits",
+      name: "Badam/பாதாம்",
+      weight: "100g",
+      rating: "4.5",
+      discountedPrice: "99",
+      originalPrice: "120"
+    },
+    {
+      id: 4,
+      image: dryFruit1,
+      category: "Dry fruits",
+      name: "Badam/பாதாம்",
+      weight: "100g",
+      rating: "4.5",
+      discountedPrice: "99",
+      originalPrice: "120"
+    }
+  ];
+
   const products = [
     {
       id: 1,
@@ -102,6 +177,7 @@ const LandingPage = () => {
         <p className="welcome-subtitle">Discover Nature's Finest Selection</p>
       </section>
 
+     
       {/* New Shop by Category Section */}
       <section className="shop-by-category">
         <div className="heading-bg">
@@ -132,7 +208,15 @@ const LandingPage = () => {
             <img src={honey} alt="Nuts" />
             <span>Nuts</span>
           </div>
-          <div className="category-item">
+          {/* <div className="category-item">
+            <img src={honey} alt="Nuts" />
+            <span>Nuts</span>
+          </div> */}
+          {/* <div className="category-item">
+            <img src={honey} alt="Nuts" />
+            <span>Nuts</span>
+          </div> */}
+          {/* <div className="category-item">
             <img src={honey} alt="Nuts" />
             <span>Nuts</span>
           </div>
@@ -148,16 +232,31 @@ const LandingPage = () => {
             <img src={honey} alt="Nuts" />
             <span>Nuts</span>
           </div>
-          <div className="category-item">
-            <img src={honey} alt="Nuts" />
-            <span>Nuts</span>
-          </div>
-          <div className="category-item">
-            <img src={honey} alt="Nuts" />
-            <span>Nuts</span>
-          </div>
+           */}
           
-          
+        </div>
+      </section>
+
+
+       {/* Best Selling Section */}
+       <section className="best-selling-section">
+        <div className="section-header">
+          <h2>Best selling</h2>
+          <Link to="/best-selling" className="see-more">See more...</Link>
+        </div>
+        <div className="best-selling-grid">
+          {bestSellingProducts.map(product => (
+            <BestSellingProduct
+              key={product.id}
+              image={product.image}
+              category={product.category}
+              name={product.name}
+              weight={product.weight}
+              rating={product.rating}
+              discountedPrice={product.discountedPrice}
+              originalPrice={product.originalPrice}
+            />
+          ))}
         </div>
       </section>
 
@@ -176,8 +275,6 @@ const LandingPage = () => {
           ))}
         </div>
       </section>
-    /
-    
 
       {/* Brand-section */}
       <section className="shop-by-world-brands">

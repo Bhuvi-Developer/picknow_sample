@@ -5,7 +5,8 @@ import LandingPage from './components/Landingpage/LandingPage';
 import Login from './components/Login/Login';
 import ProductPage from './components/ProductPage/ProductPage';
 import CartPage from './components/CartPage/CartPage';
-
+import UserProfile from './components/UserProfile/UserProfile'
+import ProductDetail from './components/ProductPage/ProductDetail';
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -40,6 +41,9 @@ const App = () => {
           <Route path="/account" element={<div>Account Page</div>} />
           <Route path="/product" element={<ProductPage />} />
           <Route path="/cart" element={<CartPage />} />
+          <Route path="/UserProfile" element={<UserProfile />} />
+          <Route path="/product/:id" element={<ProductDetail />} />
+
         </Routes>
       </div>
     </div>
